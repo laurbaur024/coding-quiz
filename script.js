@@ -1,4 +1,6 @@
-//button variables
+
+
+
 var startButton = document.querySelector("#start_button");
 var continueButton = document.querySelector("#continue");
 var quitButton = document.querySelector("#quit");
@@ -9,8 +11,6 @@ var answer4Button = document.querySelector("#answer_4")
 var submitScoreButton = document.querySelector("#submit_button")
 var resetButton = document.querySelector("#reset_button")
 
-
-//other variables
 var score = 0
 var counter;
 var answerStatus
@@ -19,8 +19,6 @@ document.getElementById('countdown').textContent = counter
 document.getElementById('answer_status_text').textContent = answerStatus
 document.getElementById('save_results_box').style.display = "none"
 document.getElementById('high_score_box').style.display = "none"
-
-//questions -- name of key values
 
 
 var questions = [{
@@ -54,7 +52,6 @@ var questions = [{
 },
 ]
 
-//event listeners for buttons
 startButton.addEventListener("click", startQuiz);
 continueButton.addEventListener("click", quizQuestions);
 quitButton.addEventListener("click", quitQuiz);
@@ -62,25 +59,19 @@ submitScoreButton.addEventListener("click", highScores)
 resetButton.addEventListener("click", resetPage)
 
 
-
-
-//starting function
 function startQuiz() {
   showRulesBox();
 
 }
 
-//makes rules box appear on click of start quiz
 function showRulesBox() {
   document.getElementById('rules_box').style.display = "block";
 }
 
-//what happens when quit quiz button is clicked on rules screen
 function quitQuiz() {
   document.getElementById('rules_box').style.display = "none";
 }
 
-//what happens when you click on the continue button on rules screen (starts quiz)
 function quizQuestions() {
   document.getElementById('question_box').style.display = "block";
   document.getElementById('rules_box').style.display = "none";
@@ -110,8 +101,6 @@ function startTimer(){
 }
 
 
-//answering the question functions
-
 function answerOne(){
   document.getElementById('answer_1').onclick = winResult1
   document.getElementById('answer_2').onclick = loseResult1
@@ -120,9 +109,8 @@ function answerOne(){
 }
 
 function winResult1(){
- console.log('correct')
  document.getElementById('answer_status_text').textContent ="Correct!"
- console.log(score += 100)
+ score += 100
  document.getElementById('current_score').textContent = score
 
  questionTwo()
@@ -130,8 +118,7 @@ function winResult1(){
 
 function loseResult1(){
  document.getElementById('answer_status_text').textContent ="Wrong!"
- console.log(counter -= 10)
- console.log('incorrect')
+ counter -= 10
  questionTwo()
 }
 
@@ -152,16 +139,14 @@ function answerTwo(){
 }
 
 function winResult2(){
-  console.log('correct')
   document.getElementById('answer_status_text').textContent ="Correct!"
-  console.log(score += 100)
+  score += 100
   document.getElementById('current_score').textContent = score
   questionThree()
  }
  
  function loseResult2(){
-  console.log('incorrect')
-  console.log(counter -= 10)
+  counter -= 10
   document.getElementById('answer_status_text').textContent ="Wrong!"
   questionThree()
  }
@@ -183,16 +168,14 @@ function answerThree(){
 }
 
 function winResult3(){
-  console.log('correct')
   document.getElementById('answer_status_text').textContent ="Correct!"
-  console.log(score += 100)
+  score += 100
   document.getElementById('current_score').textContent = score
   questionFour()
  }
  
  function loseResult3(){
-  console.log('incorrect')
-  console.log(counter -= 10)
+  counter -= 10
   document.getElementById('answer_status_text').textContent ="Wrong!"
   questionFour()
  }
@@ -214,17 +197,15 @@ function winResult3(){
 }
 
 function winResult4(){
-  console.log('correct')
   document.getElementById('answer_status_text').textContent ="Correct!"
-  console.log(score += 100)
+  score += 100
   document.getElementById('current_score').textContent = score
   questionFive()
  }
  
  function loseResult4(){
   document.getElementById('answer_status_text').textContent ="Wrong!"
-  console.log(counter -= 10)
-  console.log('incorrect')
+  counter -= 10
   questionFive()
  }
 
@@ -245,24 +226,17 @@ function winResult4(){
 }
 
 function winResult5(){
-  console.log('correct')
   document.getElementById('answer_status_text').textContent ="Correct!"
-  console.log(score += 100)
+  score += 100
   document.getElementById('current_score').textContent = score
   endGame()
  }
  
  function loseResult5(){
   document.getElementById('answer_status_text').textContent ="Wrong!"
-  console.log(counter -= 10)
-  console.log('incorrect')
+  counter -= 10
   endGame()
  }
-
-
-//end the game
-//enter initials box
-// high score screen
 
  function endGame(){
   document.getElementById('question_box').style.display = "none"
@@ -271,7 +245,6 @@ function winResult5(){
  }
 
  function highScores(){
-   console.log(document.getElementById('initials').value)
    document.getElementById('save_results_box').style.display = "none"
    document.getElementById('high_score_box').style.display = "block"
    initials = document.getElementById('initials').value
@@ -279,7 +252,6 @@ function winResult5(){
     initials: initials,
     score: score
    }
-   console.log (playerResults)
    localStorage.setItem('playerData', JSON.stringify(playerResults))
    document.getElementById('score_list').textContent = `Name: ${initials} Score: ${score}`
 

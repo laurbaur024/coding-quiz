@@ -7,6 +7,7 @@ var answer2Button = document.querySelector("#answer_2")
 var answer3Button = document.querySelector("#answer_3")
 var answer4Button = document.querySelector("#answer_4")
 var submitScoreButton = document.querySelector("#submit_button")
+var resetButton = document.querySelector("#reset_button")
 
 
 //other variables
@@ -58,6 +59,7 @@ startButton.addEventListener("click", startQuiz);
 continueButton.addEventListener("click", quizQuestions);
 quitButton.addEventListener("click", quitQuiz);
 submitScoreButton.addEventListener("click", highScores)
+resetButton.addEventListener("click", resetPage)
 
 
 
@@ -128,6 +130,7 @@ function winResult1(){
 
 function loseResult1(){
  document.getElementById('answer_status_text').textContent ="Wrong!"
+ console.log(counter -= 10)
  console.log('incorrect')
  questionTwo()
 }
@@ -158,6 +161,7 @@ function winResult2(){
  
  function loseResult2(){
   console.log('incorrect')
+  console.log(counter -= 10)
   document.getElementById('answer_status_text').textContent ="Wrong!"
   questionThree()
  }
@@ -188,6 +192,7 @@ function winResult3(){
  
  function loseResult3(){
   console.log('incorrect')
+  console.log(counter -= 10)
   document.getElementById('answer_status_text').textContent ="Wrong!"
   questionFour()
  }
@@ -218,6 +223,7 @@ function winResult4(){
  
  function loseResult4(){
   document.getElementById('answer_status_text').textContent ="Wrong!"
+  console.log(counter -= 10)
   console.log('incorrect')
   questionFive()
  }
@@ -248,6 +254,7 @@ function winResult5(){
  
  function loseResult5(){
   document.getElementById('answer_status_text').textContent ="Wrong!"
+  console.log(counter -= 10)
   console.log('incorrect')
   endGame()
  }
@@ -264,8 +271,21 @@ function winResult5(){
  }
 
  function highScores(){
-   console.log("click")
    console.log(document.getElementById('initials').value)
    document.getElementById('save_results_box').style.display = "none"
    document.getElementById('high_score_box').style.display = "block"
+   initials = document.getElementById('initials').value
+   var playerResults = {
+    initials: initials,
+    score: score
+   }
+   console.log (playerResults)
+   localStorage.setItem('playerData', JSON.stringify(playerResults))
+   document.getElementById('score_list').textContent = `Name: ${initials} Score: ${score}`
+
  }
+
+ function resetPage(){
+  window.location.reload()
+ }
+

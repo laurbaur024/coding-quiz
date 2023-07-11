@@ -51,16 +51,19 @@
     <header class = "results_title" id="results_title"> Game Over! </header>
     <div id="results">
       <h1> Put your initials in below and hit submit to see high scores!</h1>
-      <input type="text" id="initials" value="Enter your initials">
+      <input type="text" onfocus="this.value = ' '" id="initials" value="Enter your initials">
       <button class="submit_button" id="submit_button">Submit</button>
    </div>
   </div>
 
   <div class = high_score_box id="high_score_box">
     <header id = high_score_title>High Scores!</header>
-    <ul id="high_score_list">
-      <li id="high_scores"></li>
+    <div id="list">
+     <ul id="high_score_list">
+      <li id="score_list"></li>
     </ul>
+  </div>
+  <button id = 'reset_button'>Play Again?</button>
   </div>
 
   <footer class="footer">

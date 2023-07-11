@@ -6,9 +6,9 @@
 
 ## User Instructions
 
-- Click the generate password button to start.
-- Answer the prompts that pop up to generate your criteria.
-- When all prompts have been answered accurately, the password will generate in the text box on the screen based on chosen criteria from the user.
+- Hit Start Quiz to begin.
+- Read the rules and the directions on the screen to begin the timed JavaScript Quiz.
+- Enter your initials at the end to see the high scores and how you compare!
 
 ## Screenshot
 
@@ -18,4 +18,4 @@
 ## Working Code
 
 - Here is a link to a working version of my code:
-[password-generator](https://laurbaur024.github.io/javascript-password-generator/)
+[coding-quiz](https://laurbaur024.github.io/coding-quiz/)

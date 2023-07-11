@@ -54,11 +54,17 @@ body {
 .high_score_box {
   width:540px;
   background: gray;
+  font-size: 50px;
+}
+
+#high_score_title {
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-color: #2e0048;
 }
 
 .rules_box .rules_title,
-.save_results_box .results_title, 
-.high_score_box .high_score_title{
+.save_results_box .results_title {
   height: 60px;
   width: 100%;
   border-bottom: 1px solid black;
@@ -127,7 +133,8 @@ body {
 }
 
 .questions button:hover,
-#submit_button {
+#submit_button:hover,
+#reset_button:hover {
   background: #a379e1;
 }
 
@@ -155,7 +162,8 @@ body {
   background: black;
 }
 
-#submit_button {
+#submit_button,
+#reset_button {
   background:#2e0048;
   border-radius: 5px;
   color: white;
@@ -178,5 +186,5 @@ body {
 }
 
 ul {
-  display: block;
+  list-style: none;
 }

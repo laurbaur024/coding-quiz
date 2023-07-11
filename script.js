@@ -6,13 +6,18 @@ var answer1Button = document.querySelector("#answer_1")
 var answer2Button = document.querySelector("#answer_2")
 var answer3Button = document.querySelector("#answer_3")
 var answer4Button = document.querySelector("#answer_4")
+var submitScoreButton = document.querySelector("#submit_button")
 
 
 //other variables
 var score = 0
 var counter;
+var answerStatus
 document.getElementById('current_score').textContent = score
 document.getElementById('countdown').textContent = counter
+document.getElementById('answer_status_text').textContent = answerStatus
+document.getElementById('save_results_box').style.display = "none"
+document.getElementById('high_score_box').style.display = "none"
 
 //questions -- name of key values
 
@@ -52,15 +57,15 @@ var questions = [{
 startButton.addEventListener("click", startQuiz);
 continueButton.addEventListener("click", quizQuestions);
 quitButton.addEventListener("click", quitQuiz);
-// answer1Button.addEventListener("click", answer);
-// answer2Button.addEventListener("click", answer);
-// answer3Button.addEventListener("click", answer);
-// answer4Button.addEventListener("click", answer);
+submitScoreButton.addEventListener("click", highScores)
+
+
 
 
 //starting function
 function startQuiz() {
   showRulesBox();
+
 }
 
 //makes rules box appear on click of start quiz
@@ -87,7 +92,7 @@ function quizQuestions() {
 }
 
 function startTimer(){
-  counter = 4000;
+  counter = 200;
   setInterval(function(){
     counter--
     if (counter >= 0) {
@@ -103,7 +108,7 @@ function startTimer(){
 }
 
 
-//answering the question function
+//answering the question functions
 
 function answerOne(){
   document.getElementById('answer_1').onclick = winResult1
@@ -114,12 +119,15 @@ function answerOne(){
 
 function winResult1(){
  console.log('correct')
- document.getElementById('current_score').textContent = score
+ document.getElementById('answer_status_text').textContent ="Correct!"
  console.log(score += 100)
+ document.getElementById('current_score').textContent = score
+
  questionTwo()
 }
 
 function loseResult1(){
+ document.getElementById('answer_status_text').textContent ="Wrong!"
  console.log('incorrect')
  questionTwo()
 }
@@ -142,13 +150,15 @@ function answerTwo(){
 
 function winResult2(){
   console.log('correct')
-  document.getElementById('current_score').textContent = score
+  document.getElementById('answer_status_text').textContent ="Correct!"
   console.log(score += 100)
+  document.getElementById('current_score').textContent = score
   questionThree()
  }
  
  function loseResult2(){
   console.log('incorrect')
+  document.getElementById('answer_status_text').textContent ="Wrong!"
   questionThree()
  }
 
@@ -170,13 +180,15 @@ function answerThree(){
 
 function winResult3(){
   console.log('correct')
-  document.getElementById('current_score').textContent = score
+  document.getElementById('answer_status_text').textContent ="Correct!"
   console.log(score += 100)
+  document.getElementById('current_score').textContent = score
   questionFour()
  }
  
  function loseResult3(){
   console.log('incorrect')
+  document.getElementById('answer_status_text').textContent ="Wrong!"
   questionFour()
  }
 
@@ -190,20 +202,22 @@ function winResult3(){
  }
 
  function answerFour(){
-  document.getElementById('answer_1').onclick = winResult4
-  document.getElementById('answer_2').onclick = loseResult4
+  document.getElementById('answer_1').onclick = loseResult4
+  document.getElementById('answer_2').onclick = winResult4
   document.getElementById('answer_3').onclick = loseResult4
   document.getElementById('answer_4').onclick = loseResult4
 }
 
 function winResult4(){
   console.log('correct')
-  document.getElementById('current_score').textContent = score
+  document.getElementById('answer_status_text').textContent ="Correct!"
   console.log(score += 100)
+  document.getElementById('current_score').textContent = score
   questionFive()
  }
  
  function loseResult4(){
+  document.getElementById('answer_status_text').textContent ="Wrong!"
   console.log('incorrect')
   questionFive()
  }
@@ -226,16 +240,32 @@ function winResult4(){
 
 function winResult5(){
   console.log('correct')
-  document.getElementById('current_score').textContent = score
+  document.getElementById('answer_status_text').textContent ="Correct!"
   console.log(score += 100)
+  document.getElementById('current_score').textContent = score
   endGame()
  }
  
  function loseResult5(){
+  document.getElementById('answer_status_text').textContent ="Wrong!"
   console.log('incorrect')
   endGame()
  }
 
+
+//end the game
+//enter initials box
+// high score screen
+
  function endGame(){
-  
+  document.getElementById('question_box').style.display = "none"
+  document.getElementById('timer').style.display = "none"
+  document.getElementById('save_results_box').style.display = "block"
+ }
+
+ function highScores(){
+   console.log("click")
+   console.log(document.getElementById('initials').value)
+   document.getElementById('save_results_box').style.display = "none"
+   document.getElementById('high_score_box').style.display = "block"
  }

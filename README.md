@@ -2,7 +2,7 @@
 
 ## Activity
 
-- For this activity I created a password generator that will create a password based on criteria chosen by the user using JavaScript.
+- For this activity I created a Javascript Quiz to help Bootcamp students study things we have learned about in class.
 
 ## User Instructions
 
